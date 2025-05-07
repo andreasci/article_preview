@@ -1,0 +1,284 @@
+body{
+    height: 100%;
+    background-color: hsl(210, 46%, 95%);
+    font-family: 'Manrope', sans-serif;
+}
+
+.container{
+    height: 94vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 50%;
+    height: 42%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: white;
+    overflow: visible;
+}
+
+.image {
+    flex: 1.4;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    object-position: left;
+    display: block;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.text{
+    flex: 2;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.principal-text{
+    font-size: 22px;
+    font-weight: 700;
+    color: hsl(217, 19%, 35%);
+}
+
+.sub-text{
+    font-size: 14px;
+    font-weight: 500;
+    color: hsl(214, 17%, 51%);
+}
+
+.bottom-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 60px;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: baseline;
+    flex: 1;
+    min-width: 0;
+}
+
+.profile img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    grid-column: 1;
+    grid-row: 1/3;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    align-items:baseline;
+}
+
+.name{
+    grid-column: 2/6;
+    grid-row: 1;
+    font-size: 16px;
+    color: hsl(217, 19%, 35%);
+    font-weight: 700;
+}
+
+.date{
+    grid-column: 2/6;
+    grid-row: 2;
+    font-size: 13px;
+    color: hsl(212, 23%, 69%);
+}
+
+.share-button{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.share-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.share-container {
+    position: relative;
+}
+
+.share-tooltip {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-43%);
+    background-color: hsl(217, 19%, 35%);
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+    white-space: nowrap;
+}
+
+.share-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+}
+
+.share-tooltip.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.share-tooltip img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.share-tooltip img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width: 768px){
+
+    .container{
+        overflow: hidden;
+    }
+
+    .card{
+        width: 90%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 0;
+    }
+
+    .text{
+        padding-bottom: 0;
+    }
+
+    .principal-text{
+        font-size: 15px;
+        font-weight: 700;
+        color: hsl(217, 19%, 35%);
+        line-height: 1.5;
+    }
+    
+    .sub-text{
+        font-size: 13px;
+        font-weight: 500;
+        color: hsl(214, 17%, 51%);
+        line-height: 1.5;
+    }
+
+    .name{
+        grid-column: 2/6;
+        grid-row: 1;
+        font-size: 14px;
+        color: hsl(217, 19%, 35%);
+        font-weight: 700;
+    }
+
+    .bottom-bar{
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .share-container {
+        position: absolute;
+        top: 0;
+        left: -50px;
+        width: 150%;
+        height: 70px;
+        background-color: hsl(217, 19%, 35%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        border-radius: 0 0 10px 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
+
+    .share-tooltip {
+        bottom: 15px;
+        left: 40px;
+        transform: translateX(-1%);
+        background-color: hsl(217, 19%, 35%);
+        padding: 12px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: white;
+        font-size: 12px;
+        letter-spacing: 5px;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+        white-space: nowrap;
+    }
+    
+    .share-button{
+        z-index: 1000;
+    }
+
+    .share-button img.invertito{
+        filter: invert(1);
+    }
+
+    .share-tooltip::after {
+        display: none; /* nasconde la freccetta */
+    }
+    
+}
